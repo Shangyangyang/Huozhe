@@ -11,6 +11,11 @@ public class User extends BaseBean<User> {
 	private String name;
 	private String state;
 	private Date lastLogin;
+	
+	
+	public User() {
+		super();
+	}
 
 	public User(String id) {
 		super(id);
@@ -46,6 +51,10 @@ public class User extends BaseBean<User> {
 
 	public void setLastLogin(Date lastLogin) {
 		this.lastLogin = lastLogin;
+	}
+
+	public String toString() {
+		return this.getId();
 	}
 
 }

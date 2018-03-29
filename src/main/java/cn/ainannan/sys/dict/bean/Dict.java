@@ -1,7 +1,6 @@
 package cn.ainannan.sys.dict.bean;
 
 import org.springframework.stereotype.Component;
-
 import cn.ainannan.base.bean.BaseBean;
 
 @Component

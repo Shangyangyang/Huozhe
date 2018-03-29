@@ -7,6 +7,7 @@ import org.springframework.stereotype.Component;
 
 import cn.ainannan.sys.user.bean.User;
 
+
 @Component
 public abstract class BaseBean<T> {
 	protected String id;
@@ -69,6 +70,14 @@ public abstract class BaseBean<T> {
 		this.delFlag = delFlag;
 	}
 
+	public Date getUpdateDate() {
+		return updateDate;
+	}
+
+	public void setUpdateDate(Date updateDate) {
+		this.updateDate = updateDate;
+	}
+
 	public User getCreateUser() {
 		return createUser;
 	}
@@ -85,12 +94,6 @@ public abstract class BaseBean<T> {
 		this.updateUser = updateUser;
 	}
 
-	public Date getUpdateDate() {
-		return updateDate;
-	}
-
-	public void setUpdateDate(Date updateDate) {
-		this.updateDate = updateDate;
-	}
+	
 
 }
