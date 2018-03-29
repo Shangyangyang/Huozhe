@@ -4,6 +4,7 @@ import java.util.Date;
 import java.util.UUID;
 
 import org.springframework.stereotype.Component;
+import org.springframework.util.StringUtils;
 
 import cn.ainannan.sys.user.bean.User;
 
@@ -37,13 +38,21 @@ public abstract class BaseBean<T> {
 	 */
 	public void preInsert() {
 		this.setId(UUID.randomUUID().toString().replace("-", ""));
-		this.setCreateDate(new Date());
+		Date d = new Date();
+		this.setCreateDate(d);
 		this.setCreateUser(new User("10000000000000000000000000000000"));
+		this.setUpdateDate(d);
+		this.setUpdateUser(new User("10000000000000000000000000000000"));
+		this.setDelFlag(DEL_FLAG_NORMAL);
 	}
 
 	public void preUpdate() {
 		this.setUpdateDate(new Date());
 		this.setUpdateUser(new User("10000000000000000000000000000000"));
+	}
+	
+	public boolean isNewRecord() {
+		 return StringUtils.isEmpty(this.getId());
 	}
 
 	public String getId() {

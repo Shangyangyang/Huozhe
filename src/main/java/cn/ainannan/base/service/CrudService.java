@@ -19,7 +19,7 @@ public abstract class CrudService<D extends CrudDao<T>, T extends BaseBean<T>> {
 	 * 持久层对象
 	 */
 	@Autowired
-	private D dao;
+	public D dao;
 	
 	/**
 	 * 获取单条数据
@@ -54,7 +54,13 @@ public abstract class CrudService<D extends CrudDao<T>, T extends BaseBean<T>> {
 	 */
 	@Transactional(readOnly = false)
 	public void save(T entity) {
-		
+		if (entity.isNewRecord()){
+			entity.preInsert();
+			dao.insert(entity);
+		}else{
+			entity.preUpdate();
+			dao.update(entity);
+		}
 	}
 	
 	/**
