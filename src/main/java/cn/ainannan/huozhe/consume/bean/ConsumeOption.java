@@ -1,8 +1,11 @@
 package cn.ainannan.huozhe.consume.bean;
 
+import java.util.List;
+
 import org.springframework.stereotype.Component;
 
 import cn.ainannan.base.bean.BaseBean;
+import cn.ainannan.sys.dict.bean.Dict;
 
 @Component
 public class ConsumeOption extends BaseBean<ConsumeOption> {
@@ -11,6 +14,9 @@ public class ConsumeOption extends BaseBean<ConsumeOption> {
 	private String dateDefault;
 	private String type;
 	private String state;
+	
+	private List<Dict> dateDefaultList;
+	private List<Dict> typeList;
 
 	public String getName() {
 		return name;
@@ -50,5 +56,21 @@ public class ConsumeOption extends BaseBean<ConsumeOption> {
 
 	public void setState(String state) {
 		this.state = state;
+	}
+
+	public List<Dict> getDateDefaultList() {
+		return dateDefaultList;
+	}
+
+	public void setDateDefaultList(List<Dict> dateDefaultList) {
+		this.dateDefaultList = dateDefaultList;
+	}
+
+	public List<Dict> getTypeList() {
+		return typeList;
+	}
+
+	public void setTypeList(List<Dict> typeList) {
+		this.typeList = typeList;
 	}
 }

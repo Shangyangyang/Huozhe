@@ -7,6 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import cn.ainannan.base.result.ResultGen;
+import cn.ainannan.base.result.ResultObject;
 import cn.ainannan.sys.dict.bean.Dict;
 import cn.ainannan.sys.dict.service.DictService;
 
@@ -17,13 +19,13 @@ public class DictController {
 	private DictService dictService;
 
 	@RequestMapping(value="list")
-    public List<Dict> list(Dict dict){
+    public ResultObject list(Dict dict){
         List<Dict> list = dictService.findList(dict); 
-        return list;
+        return ResultGen.genSuccessResult(list);
     }
 	
 	@RequestMapping(value="lists")
-	public List<List<Dict>> lists(String name){
+	public ResultObject lists(String name, String id){
 		String [] names = name.split(",");
 		List<List<Dict>> dictList = new ArrayList<List<Dict>>();
 		
@@ -34,7 +36,7 @@ public class DictController {
 			dictList.add(list);
 		}
 		
-		return dictList;
+		return ResultGen.genSuccessResult(dictList);
 	}
 	
 	@RequestMapping(value="add")

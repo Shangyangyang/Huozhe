@@ -10,6 +10,17 @@ public class Dict extends BaseBean<Dict> {
 	private String name;
 	private Integer sort;
 
+	private Boolean checked;	// 选中状态
+	
+	public Dict() {
+		super();
+	}
+
+	public Dict(String name) {
+		super();
+		this.name = name;
+	}
+
 	public String getLabel() {
 		return label;
 	}
@@ -40,6 +51,14 @@ public class Dict extends BaseBean<Dict> {
 
 	public void setSort(Integer sort) {
 		this.sort = sort;
+	}
+
+	public Boolean getChecked() {
+		return checked;
+	}
+
+	public void setChecked(Boolean checked) {
+		this.checked = checked;
 	}
 
 }

@@ -26,6 +26,12 @@
         SELECT 
        	<include refid="Consume_Option_Column_List"/>
         FROM consume_option a
+        <where>
+			a.del_flag = #{DEL_FLAG_NORMAL}
+			<if test="name != null and name != ''">
+				AND a.name = #{name}
+			</if>
+		</where>
     </select>
     
     <insert id="insert">
@@ -84,6 +90,12 @@
 				del_flag = #{delFlag},
 			</if>
 		</trim>
+		WHERE id = #{id}
+	</update>
+	
+	<update id="delete">
+		UPDATE consume_option SET 
+			del_flag = #{DEL_FLAG_DELETE}
 		WHERE id = #{id}
 	</update>
 </mapper>
